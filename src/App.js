@@ -1,18 +1,20 @@
-import React from 'react';
-import './App.css';
-import Navbar from "./navbar/Navbar";
-import {BrowserRouter as Router, Route} from "react-router-dom";
-import Login from "./login/Login";
+import React, {Component} from 'react';
+import Provider from "react-redux/es/components/Provider";
+import store from "./store";
+import AppRouter from "./AppRouter";
+import "react-bootstrap";
+import "validate.js";
 
-function App() {
-    return (
-        <Router>
-        <div className="App">
-            <Navbar/>
-            <Route path="/login" component={Login}/>
-        </div>
-        </Router>
-    );
+class App extends Component {
+
+    render() {
+        return (
+            <Provider store={store}>
+                <AppRouter/>
+            </Provider>
+        )
+    }
 }
+
 
 export default App;
